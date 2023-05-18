@@ -1,5 +1,6 @@
 import math
 import tkinter
+import ReverseFunctions as RF
 
 ventana = tkinter.Tk()
 ventana.title("Funcion de Correspondencia")
@@ -11,7 +12,6 @@ lbl_mP = tkinter.Label(ventana, text="Memoria Principal")
 lbl_mC = tkinter.Label(ventana, text="Memoria Cache")
 
 ########################################################## Funciones
-
 def tms():
     varN.set( 2 ** float(varLam.get()) )
     varB.set( float(varN.get()) / float(varb.get()) )
@@ -19,9 +19,16 @@ def tms():
     mC.set( float(varL.get()) *  float(varb.get()) )
     mK.set( ((16*float(mC.get()))/8)/1024   )
 
+    lbl_16 = tkinter.Label(ventana, text=format(float(varLam.get())) )#format(float(varn.get()))
+    lbl_16.grid(row=8, column=2)
+    lbl_16 = tkinter.Label(ventana, text=format(float(varLam.get())) )#format(float(varn.get()))
+    lbl_16.grid(row=13, column=2)
+    lbl_16 = tkinter.Label(ventana, text=format(float(varLam.get())) )#format(float(varn.get()))
+    lbl_16.grid(row=18, column=2)
+
 def log():
     a1.set(math.log2(float(varB.get())))
-    a2.set(math.log2(float(varLam.get())))
+    a2.set(math.log2(float(varb.get())))
 
     lbl_a1 = tkinter.Label(ventana, text=format(float(a1.get())),fg='blue' )
     lbl_a1.grid(row=10, column=2)
@@ -165,8 +172,7 @@ caj_MK.grid(row = 17, column = 0)
 
 lbl_aso = tkinter.Label(ventana, text="Asociativa" ,fg="red")
 lbl_aso.grid(row=7, column=2)
-lbl_16 = tkinter.Label(ventana, text="16" )#format(float(varn.get()))
-lbl_16.grid(row=8, column=2)
+
 lbl_bts = tkinter.Label(ventana, text=msj )
 lbl_bts.grid(row=8, column=3)
 lbl_etique = tkinter.Label(ventana, text="Etiqueta" )
@@ -181,8 +187,7 @@ space2.grid(row = 11, column = 2)
 
 lbl_aso = tkinter.Label(ventana, text="Directa" ,fg="red")
 lbl_aso.grid(row=12, column=2)
-lbl_16 = tkinter.Label(ventana, text="16" )#format(float(varn.get()))
-lbl_16.grid(row=13, column=2)
+
 lbl_bts = tkinter.Label(ventana, text=msj )
 lbl_bts.grid(row=13, column=3)
 lbl_etique = tkinter.Label(ventana, text="Etiqueta" )
@@ -199,8 +204,7 @@ space3.grid(row = 16, column = 2)
 lbl_aso = tkinter.Label(ventana, text="Conjuntos" ,fg="red")
 lbl_aso.grid(row=17, column=2)
 
-lbl_16 = tkinter.Label(ventana, text="16" )#format(float(varn.get()))
-lbl_16.grid(row=18, column=2)
+
 lbl_bts = tkinter.Label(ventana, text=msj )
 lbl_bts.grid(row=18, column=3)
 lbl_etique = tkinter.Label(ventana, text="Etiqueta" )
@@ -215,8 +219,7 @@ lbl_word.grid(row=19, column=4)
 btn_S = tkinter.Button(ventana, text="Tamaños", command=tms)
 btn_S.grid(row=14, column=5)
 
-btn_Log = tkinter.Button(ventana, text="Empezar", command=log)
+btn_Log = tkinter.Button(ventana, text="Funciones", command=log)
 btn_Log.grid(row=16, column=5)
-
 
 ventana.mainloop()
